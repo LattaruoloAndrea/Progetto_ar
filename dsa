@@ -1,1 +1,4 @@
-sdas
+project -> exemple provided
+project 1 -> snake topology (-10)--s--5--s--5 = work
+project 2 -> snake topology double consumer in the head (-10)--s--(-5)--s--9--s--6 = work
+project 3 -> star topology 5--s--(-10)--s--5 = unsatisfable so it work because a consumer can access one path at the time

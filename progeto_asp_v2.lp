@@ -29,7 +29,9 @@ check_weight(X,Y,T,W) :- consumer_weight(X,Z), producer_path(X,Y,T,W), Z<=T.
 
 final_path(X,Y,T,P*P*L) :- consumer(X),producer(Y),check_weight(X,Y,T,L),consumer_weight(X,P).
 
+1 {doom(X,Y,T,F)} 1 :- final_path(X,Y,T,F), #min{W : final_path(X,Y,T,W)} = F.
 %write minimize function should use aggregate function?
-#show final_path/4.
-#minimize {W : final_path(X,Y,T,W)}.
+
+#show doom/4.
+
 %for the same value of X need to take the lowest W

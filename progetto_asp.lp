@@ -1,4 +1,4 @@
-integer(1..38). % max number sum of each producer's weight
+%integer(1..38). % max number sum of each producer's weight
 
 producer(2;3).
 producer_weight_tot(1,0;2,10;3,30;4,0).
@@ -23,13 +23,18 @@ weights(4,1,1;4,2,1;4,3,2;).
 %path(X,Y) :- path(X,Z),check_switch(Z,U), path(Z,Y).
 
 producer_path(X,Y,T,K) :- edge(X,Y),producer_weight_tot(Y,T),weights(X,Y,K).
-producer_path(X,Y,T,M+N) :- X!=Y,producer_path(X,Z,W,M), producer_path(Z,Y,L,N),T=W+L,integer(T).
+producer_path(X,Y,W+L,M+N) :- X!=Y,producer_path(X,Z,W,M), producer_path(Z,Y,L,N).
 
-%modify check on the weights
 check_weight(X,Y,T,W) :- consumer_weight(X,Z), producer_path(X,Y,T,W), Z<=T.
 
 final_path(X,Y,T,P*P*L) :- consumer(X),producer(Y),check_weight(X,Y,T,L),consumer_weight(X,P).
 
+min(X,F) :- final_path(X,_,_,_),#min{W : final_path(X,Y,T,W)} = F.
+
+1 {doom(X,Y,T,F)} 1 :- final_path(X,Y,T,F), min(X,F) .
+
 %write minimize function should use aggregate function?
-#show final_path/4.
-#minimize {W : final_path(X,Y,T,W)}.
+
+#show doom/4.
+
+%for the same value of X need to take the lowest W

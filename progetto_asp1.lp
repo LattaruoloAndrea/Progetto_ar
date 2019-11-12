@@ -1,21 +1,17 @@
-%integer(1..38). % max number sum of each producer's weight
+producer(3).
+producer_weight_tot(1,0;2,0;3,10;4,0).
 
-producer(2;3).
-producer_weight_tot(1,0;2,10;3,30;4,0).
-
-#const number_consumer = 1.
-consumer(1).
-consumer_weight(1,10).
+#const number_consumer = 2.
+consumer(1;2).
+consumer_weight(1,10;2,5).
 
 switch(4).
-
 node(1..4).
 edge(1,4;4,2;4,3;).
-edge(X,Y) :- edge(Y,X).
+edge(X,Y):-edge(Y,X).
 
 weights(X,Y,W) :- weights(Y,X,W).
 weights(4,1,1;4,2,1;4,3,2;).
-%weights of each arc (X,Y,weigh)
 
 1{ used_switch(S,X,Y,K+P,N+M)} number_switch :- X!=Y, switch(S), weights(X,S,K), weights(Y,S,P), producer_weight_tot(X,N),producer_weight_tot(Y,M).
 

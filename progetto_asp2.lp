@@ -1,21 +1,20 @@
-%integer(1..38). % max number sum of each producer's weight
-
-producer(2;3).
-producer_weight_tot(1,0;2,10;3,30;4,0).
+%project 1 minizinc
+producer(2;3;4;5).
+producer_weight_tot(1,0;2,5;3,5;4,1;5,1;6,0;7,0).
 
 #const number_consumer = 1.
 consumer(1).
 consumer_weight(1,10).
 
-switch(4).
+#const number_switch = 2.
+switch(6;7).
+node(1..7).
+integer(0..10).
+edge(1,6;2,6;5,6;2,7;3,7;4,7).
+edge(X,Y):-edge(Y,X).
 
-node(1..4).
-edge(1,4;4,2;4,3;).
-edge(X,Y) :- edge(Y,X).
-
+weights(1,6,1;2,6,2;5,6,1;2,7,1;3,7,3;4,7,4).
 weights(X,Y,W) :- weights(Y,X,W).
-weights(4,1,1;4,2,1;4,3,2;).
-%weights of each arc (X,Y,weigh)
 
 1{ used_switch(S,X,Y,K+P,N+M)} number_switch :- X!=Y, switch(S), weights(X,S,K), weights(Y,S,P), producer_weight_tot(X,N),producer_weight_tot(Y,M).
 

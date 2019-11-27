@@ -1,20 +1,19 @@
 %project 1 minizinc
-producer(2;3;4;5).
-producer_weight_tot(1,0;2,5;3,5;4,1;5,1;6,0;7,0).
+producer(3;4).
+producer_weight_tot(1,0;2,0;3,10;4,19;5,0;6,0).
 
-#const number_consumer = 1.
-consumer(1).
-consumer_weight(1,10).
-energy(1,0..10).
+#const number_consumer = 2.
+consumer(1;2).
+consumer_weight(1,10;2,20).
+energy(1,0..10;2,0..20).
 
 #const number_switch = 2.
-switch(6;7).
-node(1..7).
-integer(0..10).
-edge(1,6;2,6;5,6;2,7;3,7;4,7).
-%edge(X,Y):- edge(Y,X).
+switch(5;6).
+node(1..6).
+edge(1,5;3,5;5,6;2,6;6,5;4,6).
+%edge(X,Y):-edge(Y,X).
 
-weights(1,6,1;2,6,2;5,6,1;2,7,1;3,7,3;4,7,4).
+weights(1,5,1;3,5,2;5,6,1;4,6,1;6,5,1;6,2,4).
 weights(X,Y,W) :- weights(Y,X,W).
 
 request(C,P,E):- E!=0,consumer(C),producer(P),energy(C,E), E<=T,producer_weight_tot(P,T).
@@ -26,8 +25,11 @@ request(C,P,E):- E!=0,consumer(C),producer(P),energy(C,E), E<=T,producer_weight_
 path(X,Y) :- select_switch(X,_,Y).
 path(X,Y) :- X!=Y,select_switch(X,_,W),select_switch(W,_,Y).
 
-:- S = #sum {E,C,P : select_request(C,P,E)},S!=W,W = #sum{V: consumer_weight(K,V)}.
-%tolgo tutti i sottoinsiemi che hanno come somma per il consumatore diverso da quanto richiede
+%% devo creare gruppi con richieste solo per consumatori ? ?
+%% e poi fare la somma ?
+
+:- S = #sum {E,C,P : select_request(C,P,E),consumer(C)},S!=W,W = #sum{V: consumer_weight(K,V)}.
+%tolgo tutti i sottoinsiemi che hanno come somma per il consumatore diverso da quanto richiesto
 
 :- S = #count {P,C: select_request(C,P,E)},V = #count {P,E,C: select_request(C,P,E)},V!=S.
 %tolgo tutti i sottoinsiemi cui P e' stato utilizzato piu di una volta per consumatore
@@ -71,8 +73,8 @@ connected_switch(X,S,Y) :- X!=Y,edge(X,S),edge(Y,S),switch(S).
 
 %write minimize function should use aggregate function?
 #show select_request/3.
-#show select_switch/3.
-#show path/2.
+%#show select_switch/3.
+%#show path/2.
 
 %--------------------------------------------
 

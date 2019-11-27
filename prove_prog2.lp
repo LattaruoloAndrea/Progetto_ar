@@ -1,20 +1,19 @@
 %project 1 minizinc
-producer(2;3;4;5).
-producer_weight_tot(1,0;2,5;3,5;4,1;5,1;6,0;7,0).
+producer(3).
+producer_weight_tot(1,0;2,0;3,15;4,0).
 
-#const number_consumer = 1.
-consumer(1).
-consumer_weight(1,10).
-energy(1,0..10).
+#const number_consumer = 2.
+consumer(1;2).
+consumer_weight(1,10;2,5).
+energy(1,0..10;2,0..5).
 
-#const number_switch = 2.
-switch(6;7).
-node(1..7).
-integer(0..10).
-edge(1,6;2,6;5,6;2,7;3,7;4,7).
+#const number_switch = 1.
+switch(4).
+node(1..4).
+edge(1,4;2,4;3,4).
 %edge(X,Y):- edge(Y,X).
 
-weights(1,6,1;2,6,2;5,6,1;2,7,1;3,7,3;4,7,4).
+weights(1,4,1;2,4,2;3,4,3).
 weights(X,Y,W) :- weights(Y,X,W).
 
 request(C,P,E):- E!=0,consumer(C),producer(P),energy(C,E), E<=T,producer_weight_tot(P,T).

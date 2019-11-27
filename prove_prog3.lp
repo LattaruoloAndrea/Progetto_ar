@@ -1,6 +1,6 @@
 %project 1 minizinc
 producer(3;4).
-producer_weight_tot(1,0;2,0;3,10;4,19;5,0;6,0).
+producer_weight_tot(1,0;2,0;3,10;4,20;5,0;6,0).
 
 #const number_consumer = 2.
 consumer(1;2).
@@ -25,11 +25,8 @@ request(C,P,E):- E!=0,consumer(C),producer(P),energy(C,E), E<=T,producer_weight_
 path(X,Y) :- select_switch(X,_,Y).
 path(X,Y) :- X!=Y,select_switch(X,_,W),select_switch(W,_,Y).
 
-%% devo creare gruppi con richieste solo per consumatori ? ?
-%% e poi fare la somma ?
-
-:- S = #sum {E,C,P : select_request(C,P,E),consumer(C)},S!=W,W = #sum{V: consumer_weight(K,V)}.
-%tolgo tutti i sottoinsiemi che hanno come somma per il consumatore diverso da quanto richiesto
+:- S = #sum {E,C,P : select_request(C,P,E)},S!=W,W = #sum{V: consumer_weight(K,V)}.
+%tolgo tutti i sottoinsiemi che hanno come somma per il consumatore diverso da quanto richiede
 
 :- S = #count {P,C: select_request(C,P,E)},V = #count {P,E,C: select_request(C,P,E)},V!=S.
 %tolgo tutti i sottoinsiemi cui P e' stato utilizzato piu di una volta per consumatore
@@ -43,39 +40,20 @@ connected_switch(X,S,Y) :- X!=Y,edge(X,S),edge(Y,S),switch(S).
 :- L= #count{S: select_switch(X,S,Y)},L!=number_switch.
 %tolgo tutti i sottoinsiemi che utilizzano gli switch più di una volta
 
+switch_belong_to(S,C):-paths(C,S).
+paths(C,S):-select_switch(C,S,_).
+paths(C,S):-C!=W,select_switch(C,_,W),select_switch(W,S,_).
 
-%------------------------------------------------------------
+sum_weight(W,C) :- W=#sum{A+B,C : switch_belong_to(S,C),weights(X,S,A),weights(S,Y,B),select_switch(X,S,Y)},consumer(C).
 
+dispersion(S):- S=#sum {F: F=M*W*W,sum_weight(M,C),consumer_weight(C,W)}.
+%per ogni soluzione calcolo la dispersione
 
-%1 {pathh(C,P)} 1 :- #sum {E : path(C,P),select_request(C,P,E)} = S,path(C,P), S==W, consumer_weight(C,W).
-%
-%new_edge(X,Y,K) :- connected_switch(S,X,Y,K),used_switch(S).
-%new_edge(X,Y,K) :- new_edge(Y,X,K).
-%path_new(X,Y,K) :- new_edge(X,Y,K).
-%path_new(X,Y,K+P) :- X!=Y,path_new(X,Z,K), path_new(Z,Y,P),integer(K),integer(P).
+#minimize {W:dispersion(W)}.
+%prendo la soluzione migliore
 
-%final_pathh(X,Y,K) :- path_new(X,Y,K), pathh(X,Y),consumer(X),producer(Y).
-
-%connected_switch(S,X,Y,P+K) :- X!=Y,S!=X,S!=Y,switch(S), weights(S,X,P),weights(S,Y,K).
-
-%1{used_switch(S)}1 :- switch(S).
-
-%path(X,Y) :- weights(X,Y,_), producer_weight_tot(Y,_).
-%path(X,Y) :- X!=Y,path(X,Z),path(Z,Y).
-
-%check_weight(X,Y,W,T) :- consumer_weight(X,Z), path_new(X,Y,T,W), Z<=W.
-
-%number_consumer {final_path(X,Y,T,P*P*L)} number_consumer :- consumer(X),producer(Y),check_weight(X,Y,T,L),consumer_weight(X,P).
-
-%min(X,F) :- final_path(X,_,_,_),#min{W : final_path(X,Y,T,W)} = F.
-
-%doom(X,Y,T,F) :- final_path(X,Y,T,F), min(X,F).
-
-%write minimize function should use aggregate function?
 #show select_request/3.
-%#show select_switch/3.
-%#show path/2.
-
-%--------------------------------------------
-
-%for the same value of X need to take the lowest W
+#show select_switch/3.
+#show path/2.
+#show sum_weight/2.
+#show dispersion/1.

@@ -17,6 +17,7 @@ edge(1,6;2,6;5,6;2,7;3,7;4,7).
 weights(1,6,1;2,6,2;5,6,1;2,7,1;3,7,3;4,7,4).
 weights(X,Y,W) :- weights(Y,X,W).
 
+
 request(C,P,E):- E!=0,consumer(C),producer(P),energy(C,E), E<=T,producer_weight_tot(P,T).
 %creo tutte le richieste da un consumatore ad un produttore.
 
@@ -41,39 +42,19 @@ connected_switch(X,S,Y) :- X!=Y,edge(X,S),edge(Y,S),switch(S).
 :- L= #count{S: select_switch(X,S,Y)},L!=number_switch.
 %tolgo tutti i sottoinsiemi che utilizzano gli switch più di una volta
 
+switch_belong_to(S,C):-paths(C,S).
+paths(C,S):-select_switch(C,S,_).
+paths(C,S):-C!=W,select_switch(C,_,W),select_switch(W,S,_).
 
-%------------------------------------------------------------
+sum_weight(W,C) :- W=#sum{A+B,C : switch_belong_to(S,C),weights(X,S,A),weights(S,Y,B),select_switch(X,S,Y)},consumer(C).
 
+dispersion(S):- S=#sum {F: F=M*W*W,sum_weight(M,C),consumer_weight(C,W)}.
+%per ogni soluzione calcolo la dispersione
 
-%1 {pathh(C,P)} 1 :- #sum {E : path(C,P),select_request(C,P,E)} = S,path(C,P), S==W, consumer_weight(C,W).
-%
-%new_edge(X,Y,K) :- connected_switch(S,X,Y,K),used_switch(S).
-%new_edge(X,Y,K) :- new_edge(Y,X,K).
-%path_new(X,Y,K) :- new_edge(X,Y,K).
-%path_new(X,Y,K+P) :- X!=Y,path_new(X,Z,K), path_new(Z,Y,P),integer(K),integer(P).
+#minimize {W:dispersion(W)}.
+%prendo la soluzione migliore
 
-%final_pathh(X,Y,K) :- path_new(X,Y,K), pathh(X,Y),consumer(X),producer(Y).
-
-%connected_switch(S,X,Y,P+K) :- X!=Y,S!=X,S!=Y,switch(S), weights(S,X,P),weights(S,Y,K).
-
-%1{used_switch(S)}1 :- switch(S).
-
-%path(X,Y) :- weights(X,Y,_), producer_weight_tot(Y,_).
-%path(X,Y) :- X!=Y,path(X,Z),path(Z,Y).
-
-%check_weight(X,Y,W,T) :- consumer_weight(X,Z), path_new(X,Y,T,W), Z<=W.
-
-%number_consumer {final_path(X,Y,T,P*P*L)} number_consumer :- consumer(X),producer(Y),check_weight(X,Y,T,L),consumer_weight(X,P).
-
-%min(X,F) :- final_path(X,_,_,_),#min{W : final_path(X,Y,T,W)} = F.
-
-%doom(X,Y,T,F) :- final_path(X,Y,T,F), min(X,F).
-
-%write minimize function should use aggregate function?
 #show select_request/3.
 #show select_switch/3.
 #show path/2.
-
-%--------------------------------------------
-
-%for the same value of X need to take the lowest W
+#show dispersion/1.

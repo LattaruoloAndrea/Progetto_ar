@@ -21,9 +21,10 @@ request(C,P,E):- E!=0,consumer(C),producer(P),energy(C,E), E<=T,producer_weight_
 %creo tutte le richieste da un consumatore ad un produttore.
 
 {select_request(C,P,E)}:- request(C,P,E),path(C,P).
-path(X,Y) :- weights(X,Y,_).
-path(X,Y) :- X!=Y,path(X,Z),path(Z,Y).
-%allow any combination of request to be created
+%allow any combination of request to be created when there is a path
+
+path(X,Y) :- select_switch(X,_,Y).
+path(X,Y) :- X!=Y,select_switch(X,_,W),select_switch(W,_,Y).
 
 :- S = #sum {E,C,P : select_request(C,P,E)},S!=W,consumer(K), consumer_weight(K,W).
 %tolgo tutti i sottoinsiemi che hanno come somma per il consumatore diverso da quanto richiede
@@ -31,10 +32,14 @@ path(X,Y) :- X!=Y,path(X,Z),path(Z,Y).
 :- S = #count {P,C: select_request(C,P,E)},V = #count {P,E,C: select_request(C,P,E)},V!=S.
 %tolgo tutti i sottoinsiemi cui P e' stato utilizzato piu di una volta per consumatore
 
-1{select_switch(X,S,Y)} number_switch :- X!=Y,edge(X,S),edge(Y,S).
+connected_switch(X,S,Y) :- X!=Y,edge(X,S),edge(Y,S),switch(S).
+
+{select_switch(X,S,Y)} number_switch :- connected_switch(X,S,Y).
 %allow any combination of switch's orientation to be created, I want exaclty number_switch literals 
 
-%tolgo tutti i sottoinsiemi in cui uno switch e' stato utilizzato piu di una volta
+:- T = #count{S,X,Y: select_switch(X,S,Y)}, T!=number_switch.
+:- L= #count{S: select_switch(X,S,Y)},L!=number_switch.
+%tolgo tutti i sottoinsiemi che utilizzano gli switch più di una volta
 
 
 %------------------------------------------------------------
@@ -65,12 +70,12 @@ path(X,Y) :- X!=Y,path(X,Z),path(Z,Y).
 %doom(X,Y,T,F) :- final_path(X,Y,T,F), min(X,F).
 
 %write minimize function should use aggregate function?
-%#show select_request/3.
+#show select_request/3.
 #show select_switch/3.
-
+#show path/2.
 
 %--------------------------------------------
-%#show path/2.
+
 %#show request/3.
 
 

@@ -1,0 +1,300 @@
+test_asp0.lp
+b'clingo version 5.2.2\nReading from progetto.lp ...\nSolving...\nAnswer: 1\npath(1,3) select_switch(1,4,3) select_request(1,3,84) dispersion(70560)\nOptimization: 70560\nAnswer: 2\npath(1,2) select_switch(1,4,2) select_request(1,2,84) dispersion(63504)\nOptimization: 63504\nOPTIMUM FOUND\n\nModels       : 2\n  Optimum    : yes\nOptimization : 63504\nCalls        : 1\nTime         : 11.638s (Solving: 3.35s 1st Model: 0.14s Unsat: 0.01s)\nCPU Time     : 11.635s\n'
+Time: 11
+test_asp1.lp
+b'clingo version 5.2.2\nReading from progetto.lp ...\nSolving...\nUNSATISFIABLE\n\nModels       : 0\nCalls        : 1\nTime         : 0.012s (Solving: 0.00s 1st Model: 0.00s Unsat: 0.00s)\nCPU Time     : 0.012s\n'
+Time: 0
+test_asp2.lp
+b'clingo version 5.2.2\nReading from progetto.lp ...\nUNKNOWN\n\nTIME LIMIT   : 1\nModels       : 0+\nCalls        : 1\nTime         : 300.000s (Solving: 0.00s 1st Model: 0.00s Unsat: 0.00s)\nCPU Time     : 299.984s\n'
+Time: 300
+test_asp3.lp
+b'clingo version 5.2.2\nReading from progetto.lp ...\nUNKNOWN\n\nTIME LIMIT   : 1\nModels       : 0+\nCalls        : 1\nTime         : 300.000s (Solving: 0.00s 1st Model: 0.00s Unsat: 0.00s)\nCPU Time     : 299.985s\n'
+Time: 300
+test_asp4.lp
+b'clingo version 5.2.2\nReading from progetto.lp ...\nSolving...\nUNSATISFIABLE\n\nModels       : 0\nCalls        : 1\nTime         : 3.618s (Solving: 0.00s 1st Model: 0.00s Unsat: 0.00s)\nCPU Time     : 3.617s\n'
+Time: 3
+test_asp5.lp
+b'clingo version 5.2.2\nReading from progetto.lp ...\nSolving...\nUNSATISFIABLE\n\nModels       : 0\nCalls        : 1\nTime         : 0.844s (Solving: 0.00s 1st Model: 0.00s Unsat: 0.00s)\nCPU Time     : 0.844s\n'
+Time: 0
+test_asp6.lp
+b'clingo version 5.2.2\nReading from progetto.lp ...\nSolving...\nUNSATISFIABLE\n\nModels       : 0\nCalls        : 1\nTime         : 0.003s (Solving: 0.00s 1st Model: 0.00s Unsat: 0.00s)\nCPU Time     : 0.003s\n'
+Time: 0
+test_asp7.lp
+b'clingo version 5.2.2\nReading from progetto.lp ...\nUNKNOWN\n\nModels       : 0+\nCalls        : 1\nTime         : 89.774s (Solving: 0.00s 1st Model: 0.00s Unsat: 0.00s)\nCPU Time     : 89.565s\n'
+Time: 92
+test_asp8.lp
+b'clingo version 5.2.2\nReading from progetto.lp ...\nUNKNOWN\n\nTIME LIMIT   : 1\nModels       : 0+\nCalls        : 1\nTime         : 300.000s (Solving: 0.00s 1st Model: 0.00s Unsat: 0.00s)\nCPU Time     : 299.986s\n'
+Time: 300
+test_asp9.lp
+b'clingo version 5.2.2\nReading from progetto.lp ...\nUNKNOWN\n\nTIME LIMIT   : 1\nModels       : 0+\nCalls        : 1\nTime         : 300.000s (Solving: 0.00s 1st Model: 0.00s Unsat: 0.00s)\nCPU Time     : 299.986s\n'
+Time: 300
+test_asp10.lp
+b'clingo version 5.2.2\nReading from progetto.lp ...\nUNKNOWN\n\nTIME LIMIT   : 1\nModels       : 0+\nCalls        : 1\nTime         : 300.000s (Solving: 0.00s 1st Model: 0.00s Unsat: 0.00s)\nCPU Time     : 299.984s\n'
+Time: 300
+test_asp11.lp
+b'clingo version 5.2.2\nReading from progetto.lp ...\nSolving...\nUNSATISFIABLE\n\nModels       : 0\nCalls        : 1\nTime         : 91.160s (Solving: 0.00s 1st Model: 0.00s Unsat: 0.00s)\nCPU Time     : 91.156s\n'
+Time: 91
+test_asp12.lp
+b'clingo version 5.2.2\nReading from progetto.lp ...\nUNKNOWN\n\nTIME LIMIT   : 1\nModels       : 0+\nCalls        : 1\nTime         : 300.000s (Solving: 0.00s 1st Model: 0.00s Unsat: 0.00s)\nCPU Time     : 299.980s\n'
+Time: 300
+test_asp13.lp
+b'clingo version 5.2.2\nReading from progetto.lp ...\nSolving...\nUNSATISFIABLE\n\nModels       : 0\nCalls        : 1\nTime         : 0.045s (Solving: 0.00s 1st Model: 0.00s Unsat: 0.00s)\nCPU Time     : 0.016s\n'
+Time: 0
+test_asp14.lp
+b'clingo version 5.2.2\nReading from progetto.lp ...\nUNKNOWN\n\nTIME LIMIT   : 1\nModels       : 0+\nCalls        : 1\nTime         : 300.000s (Solving: 0.00s 1st Model: 0.00s Unsat: 0.00s)\nCPU Time     : 299.980s\n'
+Time: 300
+test_asp15.lp
+b'clingo version 5.2.2\nReading from progetto.lp ...\nUNKNOWN\n\nTIME LIMIT   : 1\nModels       : 0+\nCalls        : 1\nTime         : 300.000s (Solving: 0.00s 1st Model: 0.00s Unsat: 0.00s)\nCPU Time     : 299.979s\n'
+Time: 300
+test_asp16.lp
+b'clingo version 5.2.2\nReading from progetto.lp ...\nSolving...\nUNSATISFIABLE\n\nModels       : 0\nCalls        : 1\nTime         : 190.624s (Solving: 0.00s 1st Model: 0.00s Unsat: 0.00s)\nCPU Time     : 190.614s\n'
+Time: 190
+test_asp17.lp
+b'clingo version 5.2.2\nReading from progetto.lp ...\nSolving...\nUNSATISFIABLE\n\nModels       : 0\nCalls        : 1\nTime         : 0.003s (Solving: 0.00s 1st Model: 0.00s Unsat: 0.00s)\nCPU Time     : 0.003s\n'
+Time: 0
+test_asp18.lp
+b'clingo version 5.2.2\nReading from progetto.lp ...\nUNKNOWN\n\nTIME LIMIT   : 1\nModels       : 0+\nCalls        : 1\nTime         : 300.000s (Solving: 0.00s 1st Model: 0.00s Unsat: 0.00s)\nCPU Time     : 294.981s\n'
+Time: 300
+test_asp19.lp
+b'clingo version 5.2.2\nReading from progetto.lp ...\nUNKNOWN\n\nTIME LIMIT   : 1\nModels       : 0+\nCalls        : 1\nTime         : 300.000s (Solving: 0.00s 1st Model: 0.00s Unsat: 0.00s)\nCPU Time     : 297.327s\n'
+Time: 300
+test_asp20.lp
+b'clingo version 5.2.2\nReading from progetto.lp ...\nSolving...\nAnswer: 1\npath(1,3) select_switch(1,4,3) select_request(1,3,53) dispersion(47753)\nOptimization: 47753\nOPTIMUM FOUND\n\nModels       : 1\n  Optimum    : yes\nOptimization : 47753\nCalls        : 1\nTime         : 0.806s (Solving: 0.06s 1st Model: 0.01s Unsat: 0.05s)\nCPU Time     : 0.755s\n'
+Time: 0
+test_asp21.lp
+b'clingo version 5.2.2\nReading from progetto.lp ...\nSolving...\nUNSATISFIABLE\n\nModels       : 0\nCalls        : 1\nTime         : 0.010s (Solving: 0.00s 1st Model: 0.00s Unsat: 0.00s)\nCPU Time     : 0.003s\n'
+Time: 0
+test_asp22.lp
+b'clingo version 5.2.2\nReading from progetto.lp ...\nUNKNOWN\n\nTIME LIMIT   : 1\nModels       : 0+\nCalls        : 1\nTime         : 300.000s (Solving: 0.00s 1st Model: 0.00s Unsat: 0.00s)\nCPU Time     : 299.970s\n'
+Time: 300
+test_asp23.lp
+b'clingo version 5.2.2\nReading from progetto.lp ...\nSolving...\nUNSATISFIABLE\n\nModels       : 0\nCalls        : 1\nTime         : 0.075s (Solving: 0.00s 1st Model: 0.00s Unsat: 0.00s)\nCPU Time     : 0.050s\n'
+Time: 0
+test_asp24.lp
+b'clingo version 5.2.2\nReading from progetto.lp ...\nSolving...\nUNSATISFIABLE\n\nModels       : 0\nCalls        : 1\nTime         : 0.061s (Solving: 0.00s 1st Model: 0.00s Unsat: 0.00s)\nCPU Time     : 0.061s\n'
+Time: 0
+test_asp25.lp
+b'clingo version 5.2.2\nReading from progetto.lp ...\nSolving...\nUNSATISFIABLE\n\nModels       : 0\nCalls        : 1\nTime         : 2.467s (Solving: 0.00s 1st Model: 0.00s Unsat: 0.00s)\nCPU Time     : 2.457s\n'
+Time: 2
+test_asp26.lp
+b'clingo version 5.2.2\nReading from progetto.lp ...\nSolving...\nUNSATISFIABLE\n\nModels       : 0\nCalls        : 1\nTime         : 0.004s (Solving: 0.00s 1st Model: 0.00s Unsat: 0.00s)\nCPU Time     : 0.003s\n'
+Time: 0
+test_asp27.lp
+b'clingo version 5.2.2\nReading from progetto.lp ...\nSolving...\nUNSATISFIABLE\n\nModels       : 0\nCalls        : 1\nTime         : 0.004s (Solving: 0.00s 1st Model: 0.00s Unsat: 0.00s)\nCPU Time     : 0.003s\n'
+Time: 0
+test_asp28.lp
+b'clingo version 5.2.2\nReading from progetto.lp ...\nSolving...\nUNSATISFIABLE\n\nModels       : 0\nCalls        : 1\nTime         : 0.019s (Solving: 0.00s 1st Model: 0.00s Unsat: 0.00s)\nCPU Time     : 0.017s\n'
+Time: 0
+test_asp29.lp
+b'clingo version 5.2.2\nReading from progetto.lp ...\nUNKNOWN\n\nModels       : 0+\nCalls        : 1\nTime         : 136.508s (Solving: 0.00s 1st Model: 0.00s Unsat: 0.00s)\nCPU Time     : 136.155s\n'
+Time: 138
+test_asp30.lp
+b'clingo version 5.2.2\nReading from progetto.lp ...\nUNKNOWN\n\nModels       : 0+\nCalls        : 1\nTime         : 123.159s (Solving: 0.00s 1st Model: 0.00s Unsat: 0.00s)\nCPU Time     : 123.096s\n'
+Time: 125
+test_asp31.lp
+b'clingo version 5.2.2\nReading from progetto.lp ...\nUNKNOWN\n\nTIME LIMIT   : 1\nModels       : 0+\nCalls        : 1\nTime         : 300.000s (Solving: 0.00s 1st Model: 0.00s Unsat: 0.00s)\nCPU Time     : 299.949s\n'
+Time: 300
+test_asp32.lp
+b'clingo version 5.2.2\nReading from progetto.lp ...\nSolving...\nUNSATISFIABLE\n\nModels       : 0\nCalls        : 1\nTime         : 0.180s (Solving: 0.00s 1st Model: 0.00s Unsat: 0.00s)\nCPU Time     : 0.149s\n'
+Time: 0
+test_asp33.lp
+b'clingo version 5.2.2\nReading from progetto.lp ...\nSolving...\nUNSATISFIABLE\n\nModels       : 0\nCalls        : 1\nTime         : 0.027s (Solving: 0.00s 1st Model: 0.00s Unsat: 0.00s)\nCPU Time     : 0.006s\n'
+Time: 0
+test_asp34.lp
+b'clingo version 5.2.2\nReading from progetto.lp ...\nUNKNOWN\n\nTIME LIMIT   : 1\nModels       : 0+\nCalls        : 1\nTime         : 300.000s (Solving: 0.00s 1st Model: 0.00s Unsat: 0.00s)\nCPU Time     : 299.973s\n'
+Time: 300
+test_asp35.lp
+b'clingo version 5.2.2\nReading from progetto.lp ...\nSolving...\nUNSATISFIABLE\n\nModels       : 0\nCalls        : 1\nTime         : 0.048s (Solving: 0.00s 1st Model: 0.00s Unsat: 0.00s)\nCPU Time     : 0.016s\n'
+Time: 0
+test_asp36.lp
+b'clingo version 5.2.2\nReading from progetto.lp ...\nSolving...\nUNSATISFIABLE\n\nModels       : 0\nCalls        : 1\nTime         : 0.185s (Solving: 0.00s 1st Model: 0.00s Unsat: 0.00s)\nCPU Time     : 0.173s\n'
+Time: 0
+test_asp37.lp
+b'clingo version 5.2.2\nReading from progetto.lp ...\nUNKNOWN\n\nTIME LIMIT   : 1\nModels       : 0+\nCalls        : 1\nTime         : 300.000s (Solving: 0.00s 1st Model: 0.00s Unsat: 0.00s)\nCPU Time     : 299.984s\n'
+Time: 300
+test_asp38.lp
+b'clingo version 5.2.2\nReading from progetto.lp ...\nUNKNOWN\n\nTIME LIMIT   : 1\nModels       : 0+\nCalls        : 1\nTime         : 300.000s (Solving: 0.00s 1st Model: 0.00s Unsat: 0.00s)\nCPU Time     : 299.961s\n'
+Time: 300
+test_asp39.lp
+b'clingo version 5.2.2\nReading from progetto.lp ...\nUNKNOWN\n\nTIME LIMIT   : 1\nModels       : 0+\nCalls        : 1\nTime         : 300.000s (Solving: 0.00s 1st Model: 0.00s Unsat: 0.00s)\nCPU Time     : 299.951s\n'
+Time: 300
+test_asp40.lp
+b'clingo version 5.2.2\nReading from progetto.lp ...\nSolving...\nUNSATISFIABLE\n\nModels       : 0\nCalls        : 1\nTime         : 2.347s (Solving: 1.48s 1st Model: 0.00s Unsat: 1.48s)\nCPU Time     : 2.285s\n'
+Time: 2
+test_asp41.lp
+b'clingo version 5.2.2\nReading from progetto.lp ...\nSolving...\nUNSATISFIABLE\n\nModels       : 0\nCalls        : 1\nTime         : 0.008s (Solving: 0.00s 1st Model: 0.00s Unsat: 0.00s)\nCPU Time     : 0.007s\n'
+Time: 0
+test_asp42.lp
+b'clingo version 5.2.2\nReading from progetto.lp ...\nSolving...\nUNSATISFIABLE\n\nModels       : 0\nCalls        : 1\nTime         : 0.002s (Solving: 0.00s 1st Model: 0.00s Unsat: 0.00s)\nCPU Time     : 0.002s\n'
+Time: 0
+test_asp43.lp
+b'clingo version 5.2.2\nReading from progetto.lp ...\nUNKNOWN\n\nTIME LIMIT   : 1\nModels       : 0+\nCalls        : 1\nTime         : 300.000s (Solving: 0.00s 1st Model: 0.00s Unsat: 0.00s)\nCPU Time     : 299.975s\n'
+Time: 300
+test_asp44.lp
+b'clingo version 5.2.2\nReading from progetto.lp ...\nSolving...\nUNSATISFIABLE\n\nModels       : 0\nCalls        : 1\nTime         : 0.276s (Solving: 0.00s 1st Model: 0.00s Unsat: 0.00s)\nCPU Time     : 0.009s\n'
+Time: 0
+test_asp45.lp
+b'clingo version 5.2.2\nReading from progetto.lp ...\nSolving...\nUNSATISFIABLE\n\nModels       : 0\nCalls        : 1\nTime         : 0.390s (Solving: 0.00s 1st Model: 0.00s Unsat: 0.00s)\nCPU Time     : 0.389s\n'
+Time: 0
+test_asp46.lp
+b'clingo version 5.2.2\nReading from progetto.lp ...\nSolving...\nUNSATISFIABLE\n\nModels       : 0\nCalls        : 1\nTime         : 0.005s (Solving: 0.00s 1st Model: 0.00s Unsat: 0.00s)\nCPU Time     : 0.004s\n'
+Time: 0
+test_asp47.lp
+b'clingo version 5.2.2\nReading from progetto.lp ...\nSolving...\nUNSATISFIABLE\n\nModels       : 0\nCalls        : 1\nTime         : 0.005s (Solving: 0.00s 1st Model: 0.00s Unsat: 0.00s)\nCPU Time     : 0.004s\n'
+Time: 0
+test_asp48.lp
+b'clingo version 5.2.2\nReading from progetto.lp ...\nSolving...\nUNSATISFIABLE\n\nModels       : 0\nCalls        : 1\nTime         : 0.196s (Solving: 0.00s 1st Model: 0.00s Unsat: 0.00s)\nCPU Time     : 0.194s\n'
+Time: 0
+test_asp49.lp
+b'clingo version 5.2.2\nReading from progetto.lp ...\nUNKNOWN\n\nTIME LIMIT   : 1\nModels       : 0+\nCalls        : 1\nTime         : 300.000s (Solving: 0.00s 1st Model: 0.00s Unsat: 0.00s)\nCPU Time     : 299.940s\n'
+Time: 300
+test_asp50.lp
+b'clingo version 5.2.2\nReading from progetto.lp ...\nSolving...\nUNSATISFIABLE\n\nModels       : 0\nCalls        : 1\nTime         : 0.039s (Solving: 0.00s 1st Model: 0.00s Unsat: 0.00s)\nCPU Time     : 0.007s\n'
+Time: 0
+test_asp51.lp
+b'clingo version 5.2.2\nReading from progetto.lp ...\nUNKNOWN\n\nModels       : 0+\nCalls        : 1\nTime         : 279.416s (Solving: 0.00s 1st Model: 0.00s Unsat: 0.00s)\nCPU Time     : 278.981s\n'
+Time: 281
+test_asp52.lp
+b'clingo version 5.2.2\nReading from progetto.lp ...\nSolving...\nUNSATISFIABLE\n\nModels       : 0\nCalls        : 1\nTime         : 0.101s (Solving: 0.00s 1st Model: 0.00s Unsat: 0.00s)\nCPU Time     : 0.011s\n'
+Time: 0
+test_asp53.lp
+b'clingo version 5.2.2\nReading from progetto.lp ...\nSolving...\nUNSATISFIABLE\n\nModels       : 0\nCalls        : 1\nTime         : 0.225s (Solving: 0.00s 1st Model: 0.00s Unsat: 0.00s)\nCPU Time     : 0.213s\n'
+Time: 0
+test_asp54.lp
+b'clingo version 5.2.2\nReading from progetto.lp ...\nUNKNOWN\n\nTIME LIMIT   : 1\nModels       : 0+\nCalls        : 1\nTime         : 300.000s (Solving: 0.00s 1st Model: 0.00s Unsat: 0.00s)\nCPU Time     : 299.965s\n'
+Time: 300
+test_asp55.lp
+b'clingo version 5.2.2\nReading from progetto.lp ...\nSolving...\nUNSATISFIABLE\n\nModels       : 0\nCalls        : 1\nTime         : 0.033s (Solving: 0.00s 1st Model: 0.00s Unsat: 0.00s)\nCPU Time     : 0.020s\n'
+Time: 0
+test_asp56.lp
+b'clingo version 5.2.2\nReading from progetto.lp ...\nSolving...\nUNSATISFIABLE\n\nModels       : 0\nCalls        : 1\nTime         : 31.586s (Solving: 0.00s 1st Model: 0.00s Unsat: 0.00s)\nCPU Time     : 31.546s\n'
+Time: 31
+test_asp57.lp
+b'clingo version 5.2.2\nReading from progetto.lp ...\nSolving...\nUNSATISFIABLE\n\nModels       : 0\nCalls        : 1\nTime         : 0.040s (Solving: 0.00s 1st Model: 0.00s Unsat: 0.00s)\nCPU Time     : 0.012s\n'
+Time: 0
+test_asp58.lp
+b'clingo version 5.2.2\nReading from progetto.lp ...\nUNKNOWN\n\nTIME LIMIT   : 1\nModels       : 0+\nCalls        : 1\nTime         : 300.000s (Solving: 0.00s 1st Model: 0.00s Unsat: 0.00s)\nCPU Time     : 299.980s\n'
+Time: 300
+test_asp59.lp
+b'clingo version 5.2.2\nReading from progetto.lp ...\nSolving...\nUNSATISFIABLE\n\nModels       : 0\nCalls        : 1\nTime         : 0.272s (Solving: 0.00s 1st Model: 0.00s Unsat: 0.00s)\nCPU Time     : 0.008s\n'
+Time: 0
+test_asp60.lp
+b'clingo version 5.2.2\nReading from progetto.lp ...\nSolving...\nAnswer: 1\npath(1,3) select_switch(1,4,3) select_request(1,3,19) dispersion(2888)\nOptimization: 2888\nAnswer: 2\npath(1,2) select_switch(1,4,2) select_request(1,2,19) dispersion(1805)\nOptimization: 1805\nOPTIMUM FOUND\n\nModels       : 2\n  Optimum    : yes\nOptimization : 1805\nCalls        : 1\nTime         : 0.026s (Solving: 0.00s 1st Model: 0.00s Unsat: 0.00s)\nCPU Time     : 0.026s\n'
+Time: 0
+test_asp61.lp
+b'clingo version 5.2.2\nReading from progetto.lp ...\nSolving...\nUNSATISFIABLE\n\nModels       : 0\nCalls        : 1\nTime         : 0.003s (Solving: 0.00s 1st Model: 0.00s Unsat: 0.00s)\nCPU Time     : 0.002s\n'
+Time: 0
+test_asp62.lp
+b'clingo version 5.2.2\nReading from progetto.lp ...\nSolving...\nUNSATISFIABLE\n\nModels       : 0\nCalls        : 1\nTime         : 0.003s (Solving: 0.00s 1st Model: 0.00s Unsat: 0.00s)\nCPU Time     : 0.003s\n'
+Time: 0
+test_asp63.lp
+b'clingo version 5.2.2\nReading from progetto.lp ...\nSolving...\nUNSATISFIABLE\n\nModels       : 0\nCalls        : 1\nTime         : 0.596s (Solving: 0.00s 1st Model: 0.00s Unsat: 0.00s)\nCPU Time     : 0.596s\n'
+Time: 0
+test_asp64.lp
+b'clingo version 5.2.2\nReading from progetto.lp ...\nSolving...\nUNSATISFIABLE\n\nModels       : 0\nCalls        : 1\nTime         : 0.128s (Solving: 0.00s 1st Model: 0.00s Unsat: 0.00s)\nCPU Time     : 0.126s\n'
+Time: 0
+test_asp65.lp
+b'clingo version 5.2.2\nReading from progetto.lp ...\nSolving...\nUNSATISFIABLE\n\nModels       : 0\nCalls        : 1\nTime         : 0.005s (Solving: 0.00s 1st Model: 0.00s Unsat: 0.00s)\nCPU Time     : 0.003s\n'
+Time: 0
+test_asp66.lp
+b'clingo version 5.2.2\nReading from progetto.lp ...\nUNKNOWN\n\nTIME LIMIT   : 1\nModels       : 0+\nCalls        : 1\nTime         : 300.000s (Solving: 0.00s 1st Model: 0.00s Unsat: 0.00s)\nCPU Time     : 299.946s\n'
+Time: 300
+test_asp67.lp
+b'clingo version 5.2.2\nReading from progetto.lp ...\nSolving...\nUNSATISFIABLE\n\nModels       : 0\nCalls        : 1\nTime         : 0.248s (Solving: 0.00s 1st Model: 0.00s Unsat: 0.00s)\nCPU Time     : 0.013s\n'
+Time: 0
+test_asp68.lp
+b'clingo version 5.2.2\nReading from progetto.lp ...\nUNKNOWN\n\nTIME LIMIT   : 1\nModels       : 0+\nCalls        : 1\nTime         : 300.000s (Solving: 0.00s 1st Model: 0.00s Unsat: 0.00s)\nCPU Time     : 299.952s\n'
+Time: 300
+test_asp69.lp
+b'clingo version 5.2.2\nReading from progetto.lp ...\nSolving...\nUNSATISFIABLE\n\nModels       : 0\nCalls        : 1\nTime         : 0.039s (Solving: 0.00s 1st Model: 0.00s Unsat: 0.00s)\nCPU Time     : 0.014s\n'
+Time: 0
+test_asp70.lp
+b'clingo version 5.2.2\nReading from progetto.lp ...\nSolving...\nUNSATISFIABLE\n\nModels       : 0\nCalls        : 1\nTime         : 0.012s (Solving: 0.00s 1st Model: 0.00s Unsat: 0.00s)\nCPU Time     : 0.008s\n'
+Time: 0
+test_asp71.lp
+b'clingo version 5.2.2\nReading from progetto.lp ...\nUNKNOWN\n\nTIME LIMIT   : 1\nModels       : 0+\nCalls        : 1\nTime         : 300.000s (Solving: 0.00s 1st Model: 0.00s Unsat: 0.00s)\nCPU Time     : 299.972s\n'
+Time: 300
+test_asp72.lp
+b'clingo version 5.2.2\nReading from progetto.lp ...\nSolving...\nUNSATISFIABLE\n\nModels       : 0\nCalls        : 1\nTime         : 1.243s (Solving: 0.00s 1st Model: 0.00s Unsat: 0.00s)\nCPU Time     : 1.210s\n'
+Time: 1
+test_asp73.lp
+b'clingo version 5.2.2\nReading from progetto.lp ...\nUNKNOWN\n\nTIME LIMIT   : 1\nModels       : 0+\nCalls        : 1\nTime         : 300.000s (Solving: 0.00s 1st Model: 0.00s Unsat: 0.00s)\nCPU Time     : 299.983s\n'
+Time: 300
+test_asp74.lp
+b'clingo version 5.2.2\nReading from progetto.lp ...\nSolving...\nUNSATISFIABLE\n\nModels       : 0\nCalls        : 1\nTime         : 0.214s (Solving: 0.00s 1st Model: 0.00s Unsat: 0.00s)\nCPU Time     : 0.186s\n'
+Time: 0
+test_asp75.lp
+b'clingo version 5.2.2\nReading from progetto.lp ...\nUNKNOWN\n\nTIME LIMIT   : 1\nModels       : 0+\nCalls        : 1\nTime         : 300.000s (Solving: 0.00s 1st Model: 0.00s Unsat: 0.00s)\nCPU Time     : 299.969s\n'
+Time: 300
+test_asp76.lp
+b'clingo version 5.2.2\nReading from progetto.lp ...\nSolving...\nUNSATISFIABLE\n\nModels       : 0\nCalls        : 1\nTime         : 0.008s (Solving: 0.00s 1st Model: 0.00s Unsat: 0.00s)\nCPU Time     : 0.006s\n'
+Time: 0
+test_asp77.lp
+b'clingo version 5.2.2\nReading from progetto.lp ...\nUNKNOWN\n\nTIME LIMIT   : 1\nModels       : 0+\nCalls        : 1\nTime         : 300.000s (Solving: 0.00s 1st Model: 0.00s Unsat: 0.00s)\nCPU Time     : 299.983s\n'
+Time: 300
+test_asp78.lp
+b'clingo version 5.2.2\nReading from progetto.lp ...\nUNKNOWN\n\nModels       : 0+\nCalls        : 1\nTime         : 211.467s (Solving: 0.00s 1st Model: 0.00s Unsat: 0.00s)\nCPU Time     : 211.391s\n'
+Time: 214
+test_asp79.lp
+b'clingo version 5.2.2\nReading from progetto.lp ...\nUNKNOWN\n\nTIME LIMIT   : 1\nModels       : 0+\nCalls        : 1\nTime         : 300.000s (Solving: 0.00s 1st Model: 0.00s Unsat: 0.00s)\nCPU Time     : 299.950s\n'
+Time: 300
+test_asp80.lp
+b'clingo version 5.2.2\nReading from progetto.lp ...\nSolving...\nAnswer: 1\npath(1,2) select_switch(1,4,2) select_request(1,2,53) dispersion(25281)\nOptimization: 25281\nOPTIMUM FOUND\n\nModels       : 1\n  Optimum    : yes\nOptimization : 25281\nCalls        : 1\nTime         : 1.498s (Solving: 0.70s 1st Model: 0.69s Unsat: 0.01s)\nCPU Time     : 1.201s\n'
+Time: 1
+test_asp81.lp
+b'clingo version 5.2.2\nReading from progetto.lp ...\nSolving...\nUNSATISFIABLE\n\nModels       : 0\nCalls        : 1\nTime         : 0.007s (Solving: 0.00s 1st Model: 0.00s Unsat: 0.00s)\nCPU Time     : 0.005s\n'
+Time: 0
+test_asp82.lp
+b'clingo version 5.2.2\nReading from progetto.lp ...\nSolving...\nUNSATISFIABLE\n\nModels       : 0\nCalls        : 1\nTime         : 0.640s (Solving: 0.00s 1st Model: 0.00s Unsat: 0.00s)\nCPU Time     : 0.639s\n'
+Time: 0
+test_asp83.lp
+b'clingo version 5.2.2\nReading from progetto.lp ...\nSolving...\nUNSATISFIABLE\n\nModels       : 0\nCalls        : 1\nTime         : 1.183s (Solving: 0.00s 1st Model: 0.00s Unsat: 0.00s)\nCPU Time     : 1.181s\n'
+Time: 1
+test_asp84.lp
+b'clingo version 5.2.2\nReading from progetto.lp ...\nSolving...\nUNSATISFIABLE\n\nModels       : 0\nCalls        : 1\nTime         : 0.039s (Solving: 0.00s 1st Model: 0.00s Unsat: 0.00s)\nCPU Time     : 0.007s\n'
+Time: 0
+test_asp85.lp
+b'clingo version 5.2.2\nReading from progetto.lp ...\nSolving...\nUNSATISFIABLE\n\nModels       : 0\nCalls        : 1\nTime         : 0.016s (Solving: 0.00s 1st Model: 0.00s Unsat: 0.00s)\nCPU Time     : 0.016s\n'
+Time: 0
+test_asp86.lp
+b'clingo version 5.2.2\nReading from progetto.lp ...\nSolving...\nUNSATISFIABLE\n\nModels       : 0\nCalls        : 1\nTime         : 0.269s (Solving: 0.00s 1st Model: 0.00s Unsat: 0.00s)\nCPU Time     : 0.268s\n'
+Time: 0
+test_asp87.lp
+b'clingo version 5.2.2\nReading from progetto.lp ...\nSolving...\nUNSATISFIABLE\n\nModels       : 0\nCalls        : 1\nTime         : 0.007s (Solving: 0.00s 1st Model: 0.00s Unsat: 0.00s)\nCPU Time     : 0.005s\n'
+Time: 0
+test_asp88.lp
+b'clingo version 5.2.2\nReading from progetto.lp ...\nSolving...\nUNSATISFIABLE\n\nModels       : 0\nCalls        : 1\nTime         : 7.710s (Solving: 0.00s 1st Model: 0.00s Unsat: 0.00s)\nCPU Time     : 7.708s\n'
+Time: 7
+test_asp89.lp
+b'clingo version 5.2.2\nReading from progetto.lp ...\nSolving...\nUNSATISFIABLE\n\nModels       : 0\nCalls        : 1\nTime         : 0.185s (Solving: 0.00s 1st Model: 0.00s Unsat: 0.00s)\nCPU Time     : 0.184s\n'
+Time: 0
+test_asp90.lp
+b'clingo version 5.2.2\nReading from progetto.lp ...\nUNKNOWN\n\nTIME LIMIT   : 1\nModels       : 0+\nCalls        : 1\nTime         : 300.000s (Solving: 0.00s 1st Model: 0.00s Unsat: 0.00s)\nCPU Time     : 299.947s\n'
+Time: 300
+test_asp91.lp
+b'clingo version 5.2.2\nReading from progetto.lp ...\nSolving...\nUNSATISFIABLE\n\nModels       : 0\nCalls        : 1\nTime         : 0.035s (Solving: 0.00s 1st Model: 0.00s Unsat: 0.00s)\nCPU Time     : 0.009s\n'
+Time: 0
+test_asp92.lp
+b'clingo version 5.2.2\nReading from progetto.lp ...\nUNKNOWN\n\nTIME LIMIT   : 1\nModels       : 0+\nCalls        : 1\nTime         : 300.000s (Solving: 0.00s 1st Model: 0.00s Unsat: 0.00s)\nCPU Time     : 299.970s\n'
+Time: 300
+test_asp93.lp
+b'clingo version 5.2.2\nReading from progetto.lp ...\nUNKNOWN\n\nTIME LIMIT   : 1\nModels       : 0+\nCalls        : 1\nTime         : 300.000s (Solving: 0.00s 1st Model: 0.00s Unsat: 0.00s)\nCPU Time     : 299.901s\n'
+Time: 300
+test_asp94.lp
+b'clingo version 5.2.2\nReading from progetto.lp ...\nSolving...\nUNSATISFIABLE\n\nModels       : 0\nCalls        : 1\nTime         : 0.284s (Solving: 0.00s 1st Model: 0.00s Unsat: 0.00s)\nCPU Time     : 0.019s\n'
+Time: 0
+test_asp95.lp
+b'clingo version 5.2.2\nReading from progetto.lp ...\nSolving...\nUNSATISFIABLE\n\nModels       : 0\nCalls        : 1\nTime         : 0.008s (Solving: 0.00s 1st Model: 0.00s Unsat: 0.00s)\nCPU Time     : 0.008s\n'
+Time: 0
+test_asp96.lp
+b'clingo version 5.2.2\nReading from progetto.lp ...\nSolving...\nUNSATISFIABLE\n\nModels       : 0\nCalls        : 1\nTime         : 0.026s (Solving: 0.00s 1st Model: 0.00s Unsat: 0.00s)\nCPU Time     : 0.016s\n'
+Time: 0
+test_asp97.lp
+b'clingo version 5.2.2\nReading from progetto.lp ...\nUNKNOWN\n\nTIME LIMIT   : 1\nModels       : 0+\nCalls        : 1\nTime         : 300.000s (Solving: 0.00s 1st Model: 0.00s Unsat: 0.00s)\nCPU Time     : 299.975s\n'
+Time: 300
+test_asp98.lp
+b'clingo version 5.2.2\nReading from progetto.lp ...\nUNKNOWN\n\nTIME LIMIT   : 1\nModels       : 0+\nCalls        : 1\nTime         : 300.000s (Solving: 0.00s 1st Model: 0.00s Unsat: 0.00s)\nCPU Time     : 299.954s\n'
+Time: 300
+test_asp99.lp
+b'clingo version 5.2.2\nReading from progetto.lp ...\nUNKNOWN\n\nTIME LIMIT   : 1\nModels       : 0+\nCalls        : 1\nTime         : 300.000s (Solving: 0.00s 1st Model: 0.00s Unsat: 0.00s)\nCPU Time     : 299.937s\n'
+Time: 300

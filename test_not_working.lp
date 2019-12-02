@@ -1,19 +1,13 @@
-%project 1 minizinc
-producer(3;4).
-producer_weight_tot(1,0;2,0;3,10;4,20;5,0;6,0).
-
-#const number_consumer = 2.
-consumer(1;2).
-consumer_weight(1,10;2,20).
-energy(1,0..10;2,0..20).
-
-#const number_switch = 2.
-switch(5;6).
-node(1..6).
-edge(1,5;3,5;5,6;2,6;6,5;4,6).
-%edge(X,Y):-edge(Y,X).
-
-weights(1,5,1;3,5,2;5,6,1;4,6,1;6,5,1;6,2,4).
+producer(2;3;4;5;6;7;8;9).
+producer_weight_tot(1, 0; 2, 19; 3, 36; 4, 55; 5, 81; 6, 83; 7, 90; 8, 40; 9, 89; 10, 0; 11, 0; 12, 0).
+#const number_consumer = 1.
+consumer(1).
+consumer_weight(1, 51).
+energy(1,0..51).
+#const number_switch = 3.
+switch(10;11;12).
+edge(1, 10; 3, 10; 11, 10; 4, 11; 5, 11; 10, 11; 2, 12; 4, 12; 7, 12; ).
+weights(1, 10, 8; 3, 10, 8; 4, 11, 9; 5, 11, 2; 10, 11, 7; 2, 12, 8; 4, 12, 2; 7, 12, 6; ).
 weights(X,Y,W) :- weights(Y,X,W).
 
 %un producer non puo essere richiesto dallo stesso consumer piu di una volta

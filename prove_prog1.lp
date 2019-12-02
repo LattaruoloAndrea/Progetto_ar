@@ -16,6 +16,11 @@ edge(1,4;2,4;3,4).
 weights(1,4,1;2,4,2;3,4,3).
 weights(X,Y,W) :- weights(Y,X,W).
 
+%un producer non puo essere richiesto dallo stesso consumer piu di una volta
+%uno stesso consumer non puo fare richieste diverse allo stesso producer
+:- S = #sum{W,P : select_request(C,P,_),producer_weight_tot(P,W)}, T = #sum{W,P,C : select_request(C,P,_),producer_weight_tot(P,W)},S!=T.
+%tolgo le richieste da un consumatore ad uno stesso produttore
+
 request(C,P,E):- E!=0,consumer(C),producer(P),energy(C,E), E<=T,producer_weight_tot(P,T).
 %creo tutte le richieste da un consumatore ad un produttore.
 
@@ -24,6 +29,8 @@ request(C,P,E):- E!=0,consumer(C),producer(P),energy(C,E), E<=T,producer_weight_
 
 path(X,Y) :- select_switch(X,_,Y).
 path(X,Y) :- X!=Y,select_switch(X,_,W),select_switch(W,_,Y).
+path(X,Y) :- X!=Y,select_switch(X,_,W),select_switch(_,W,Y).
+%caso in cui connetto due switch
 
 :- S = #sum {E,C,P : select_request(C,P,E)},S!=W,W = #sum{V: consumer_weight(K,V)}.
 %tolgo tutti i sottoinsiemi che hanno come somma per il consumatore diverso da quanto richiede
@@ -41,12 +48,14 @@ connected_switch(X,S,Y) :- X!=Y,edge(X,S),edge(Y,S),switch(S).
 %tolgo tutti i sottoinsiemi che utilizzano gli switch più di una volta
 
 switch_belong_to(S,C):-paths(C,S).
+%cerco quali switch collegano quale consumer
 paths(C,S):-select_switch(C,S,_).
 paths(C,S):-C!=W,select_switch(C,_,W),select_switch(W,S,_).
 
 sum_weight(W,C) :- W=#sum{A+B,C : switch_belong_to(S,C),weights(X,S,A),weights(S,Y,B),select_switch(X,S,Y)},consumer(C).
+%sommo gli archi in ogni cammino consumer
 
-dispersion(S):- S=#sum {F: F=M*W*W,sum_weight(M,C),consumer_weight(C,W)}.
+dispersion(S):- S=#sum {F: F=M*W*W,sum_weight(M,C),consumer_weight(C,W)},S!=0.
 %per ogni soluzione calcolo la dispersione
 
 #minimize {W:dispersion(W)}.

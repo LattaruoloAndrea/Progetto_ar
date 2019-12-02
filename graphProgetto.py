@@ -221,7 +221,10 @@ class graph:
                 if j<i:
                     if self.adjMatrix[i][j] == 1:
                         edge+= str(j+1) +", "+ str(i+1) +"; "
-                        weight+= str(j+1) +", "+ str(i+1)+", " +str(self.w[i][j]) + "; "
+                        if i>=self.n-self.nSwitch+1 and j>=self.n-self.nSwitch+1:
+                            #if two switch are connected I need the other verse
+                            edge+= str(i+1) +", "+ str(j+1) +"; "
+                    weight+= str(j+1) +", "+ str(i+1)+", " +str(self.w[i][j]) + "; "
         return edge,weight
 
 def create_test(g,occ):
@@ -238,9 +241,9 @@ def create_file(name,content):
 def create_names(name_file,occ,ext):
     return name_file+"_"+str(occ)+"."+ext
 
-def time_test(path):
+def time_test(n_test=100):
     f = open("clingo_result_test","w")
-    for occ in range(50):
+    for occ in range(n_test):
         bashCommand = "clingo --time-limit=300 " + "progetto.lp " + "test/test_asp_" + str(occ) + ".lp"
         print("test/test_asp_" + str(occ) + ".lp")
         process = subprocess.Popen(bashCommand.split(),stdout=subprocess.PIPE)
@@ -252,10 +255,10 @@ def time_test(path):
         f.write("Time: "+ str( (int((time_end-time_start)/1000)))+"\n")
     f.close()
 
-def time_test_m(low= 0):
+def time_test_m(n_test=100):
     path = "MiniZincIDE-2.3.2-bundle-linux"
     f = open("minizinc_result_test","w")
-    for occ in range(100):
+    for occ in range(n_test):
         bashCommand = "minizinc --solver Gecode --time-limit 300000 progetto.mzn "+"test/test_minizinc_" + str(occ) +".dzn"
         print("test/test_mnz_" + str(occ) + ".dzn")
         process = subprocess.Popen(bashCommand.split(),stdout=subprocess.PIPE)
@@ -278,24 +281,29 @@ def rename():
         f.close()
         ff.close()
 
+def gg_test():
+    g = graph(3,3)
+    g.createGraph()
+    number_exception=1
+    for i in range(100):
+        j = i % 20
+        try:
+            g = graph(j+1,g.randomRange(1,j+1))
+            g.createGraph()
+            create_test(g,i)
+        except:
+             print("exception ", number_exception," on file: ",i)
+             number_exception+=1
+
 if __name__ == "__main__":
-    # g = graph(3,3)
-    # g.createGraph()
+
     #g.printMatrix()
     #g.printWeight()
     # print(g.wConsumer,"\n",g.wProducer,"\n")
     # print(g.create_min(),"\n",g.create_asp())
     # create test100
-    # number_exception=1
-    # for i in range(100):
-    #     j = i % 20
-    #     try:
-    #         g = graph(j+1,g.randomRange(1,j+1))
-    #         g.createGraph()
-    #         create_test(g,i)
-    #     except:
-    #         print("exception ", number_exception," on file: ",i)
-    #         number_exception+=1
+    gg_test()
     #end creating test
-    time_test("ciao")
-    #time_test_m()
+    n_test = 5
+    time_test(n_test)
+    time_test_m(n_test)

@@ -31,7 +31,6 @@ paths(C,S):-C!=W,select_switch(C,_,W),select_switch(W,S,_).
 sum_weight(W,C) :- W=#sum{A+B,C : switch_belong_to(S,C),weights(X,S,A),weights(S,Y,B),select_switch(X,S,Y)},consumer(C).
 %sommo gli archi in ogni cammino consumer
 
-
 dispersion(S):- S=#sum {F: F=M*W*W,sum_weight(M,C),consumer_weight(C,W)}.
 %per ogni soluzione calcolo la dispersione
 

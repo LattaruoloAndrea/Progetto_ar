@@ -9,7 +9,7 @@ class graph:
         self.nSwitch = s
         self.nConsumer = c
         self.nProducer = 3*self.nSwitch - self.nConsumer
-        self.n = self.nConsumer +self.nConsumer + self.nProducer
+        self.n = self.nConsumer +self.nSwitch + self.nProducer
         self.edges = 3*self.nSwitch
         self.adjMatrix = [[0 for i in range(self.n)] for j in range(self.n)]
         self.w = [[0 for i in range(self.n)] for j in range(self.n)]
@@ -21,29 +21,44 @@ class graph:
         self.ss = [i+1+self.nConsumer+self.nProducer for i in range(self.nSwitch)]
 
     def createGraph(self):
-        #for each switch it assigns 3 nodes
-        t = True
-        x = self.n - self.nSwitch
-        # x are the switch
-        while not self.filled():
-            y = self.randomRange(0,self.n-1)
-            while x==y:
-                y = self.randomRange(0,self.n-1)
-                if t:
-                    self.edges = self.edges - 1
-                    t = False
-            #print("x: ",x, "\ty: ",y,"\tn. ",self.n)
-            if self.adjMatrix[x][y] == 1:
-                 self.edges = self.edges + 1
-            if not self.switchCompeted(x):
-                self.adjMatrix[x][y] = 1
-                self.w[x][y] = self.adjMatrix[x][y]*self.randomRange(self.min,int(self.max*10/100))
-                self.edges = self.edges - 1
+        index_switch = self.n - self.nSwitch
+        switch_edges_array = [3 for i in range(self.nSwitch)]
+        i = 0
+        while self.sum_array(switch_edges_array) != 0:
+            if switch_edges_array[i] != 0:
+                # choose a random node
+                node = self.randomRange(0,self.n-1)
+                while node == (i+index_switch) or self.adjMatrix[i+index_switch][node] == 1:
+                    node = self.randomRange(0,self.n-1-self.nSwitch)
+                if node >= index_switch:
+                    #if node is a switch
+                    if switch_edges_array[node-index_switch] != 0:
+                        #print("SWITCH")
+                        self.adjMatrix[i+index_switch][node] = 1
+                        self.w[i+index_switch][node] = self.adjMatrix[i+index_switch][node]*self.randomRange(self.min,int(self.max*10/100))
+                        self.adjMatrix[node][i+index_switch] = 1
+                        self.w[node][i+index_switch] = self.adjMatrix[i+index_switch][node]*self.randomRange(self.min,int(self.max*10/100))
+                        switch_edges_array[i] -= 1
+                        switch_edges_array[node-index_switch] -= 1
+                    else:
+                        #print("PASS")
+                        # the other swithc is already full
+                        pass
+                else:
+                    #print("CONS, PROD")
+                    self.adjMatrix[i+index_switch][node] = 1
+                    self.w[i+index_switch][node] = self.adjMatrix[i+index_switch][node]*self.randomRange(self.min,int(self.max*10/100))
+                    switch_edges_array[i] -= 1
             else:
-                x = x + 1
-                t = True
-                # next switch
+                i+=1
+        #print("sum: ",self.sum_array(switch_edges_array))
         self.speculateMatrix()
+            
+    def sum_array(self,array):
+        tot = 0
+        for i in range(len(array)):
+            tot += array[i]
+        return tot
 
     def printMatrix(self):
         for i in range(self.n):
@@ -132,7 +147,10 @@ class graph:
                     result += str(matrix[i][j])+" "
                 else:
                     result += str(matrix[i][j])+", "
-            result += "|\n"
+            if i== self.n-1 and j== self.n-1:
+                result += "|"
+            else:
+                result += "|\n"
         result += "]"
         return result
 
@@ -207,7 +225,7 @@ class graph:
         return edge,weight
 
 def create_test(g,occ):
-    names_min = create_names("test/test_minizinc",occ,"mnz")
+    names_min = create_names("test/test_minizinc",occ,"dzn")
     names_asp = create_names("test/test_asp",occ,"lp")
     create_file(names_min,g.create_min())
     create_file(names_asp,g.create_asp())
@@ -222,7 +240,7 @@ def create_names(name_file,occ,ext):
 
 def time_test(path):
     f = open("clingo_result_test","w")
-    for occ in range(100):
+    for occ in range(50):
         bashCommand = "clingo --time-limit=300 " + "progetto.lp " + "test/test_asp_" + str(occ) + ".lp"
         print("test/test_asp_" + str(occ) + ".lp")
         process = subprocess.Popen(bashCommand.split(),stdout=subprocess.PIPE)
@@ -234,12 +252,37 @@ def time_test(path):
         f.write("Time: "+ str( (int((time_end-time_start)/1000)))+"\n")
     f.close()
 
+def time_test_m(low= 0):
+    path = "MiniZincIDE-2.3.2-bundle-linux"
+    f = open("minizinc_result_test","w")
+    for occ in range(100):
+        bashCommand = "minizinc --solver Gecode --time-limit 300000 progetto.mzn "+"test/test_minizinc_" + str(occ) +".dzn"
+        print("test/test_mnz_" + str(occ) + ".dzn")
+        process = subprocess.Popen(bashCommand.split(),stdout=subprocess.PIPE)
+        time_start = int(round(time.time()*1000))
+        output,error = process.communicate()
+        time_end = int(round(time.time()*1000))
+        f.write("test_mnz" + str(occ) + ".dzn\n")
+        f.write(str(output)+"\n")
+        f.write("Time: "+ str( (int((time_end-time_start)/1000)))+"\n")
+    f.close()
+
+def rename():
+    for i in range(100):
+        name = "test/test_mnz_"+ str(i)+".dnz"
+        name1 = "test/test_mnz_"+ str(i)+".dzn"
+        f = open(name,"r")
+        ff = open(name1,"w")
+        content = f.read()
+        ff.write(content)
+        f.close()
+        ff.close()
 
 if __name__ == "__main__":
     # g = graph(3,3)
     # g.createGraph()
-    # g.printMatrix()
-    # g.printWeight()
+    #g.printMatrix()
+    #g.printWeight()
     # print(g.wConsumer,"\n",g.wProducer,"\n")
     # print(g.create_min(),"\n",g.create_asp())
     # create test100
@@ -253,5 +296,6 @@ if __name__ == "__main__":
     #     except:
     #         print("exception ", number_exception," on file: ",i)
     #         number_exception+=1
-    # end creating test
+    #end creating test
     time_test("ciao")
+    #time_test_m()
